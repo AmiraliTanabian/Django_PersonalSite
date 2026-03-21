@@ -273,11 +273,12 @@
 					<ul>
 						{% for stat in stats %}
 							<li>
-							<div class="list_inner tilt-effect">
-								<h3><span class="tm_counter" data-from="0" data-to="{{ stat.stats }}" data-speed="2500"></span></h3>
-								<span class="title">{{ stat.title }}</span>
-							</div>
-						</li>
+								<div class="list_inner tilt-effect">
+									<h3><span class="tm_counter" data-from="0" data-to="{{ stat.stats }}"
+									          data-speed="2500"></span></h3>
+									<span class="title">{{ stat.title }}</span>
+								</div>
+							</li>
 						{% endfor %}
 					</ul>
 				</div>
@@ -531,9 +532,10 @@
 						</div>
 						<div class="resume_list">
 							<ul>
-								<li class="wow fadeInUp" data-wow-duration="1s">
-									<div class="list_inner">
-<span class="icon"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="791.803px" height="791.803px" viewBox="0 0 791.803 791.803" style="enable-background:new 0 0 791.803 791.803;" xml:space="preserve" class="svg replaced-svg">
+								{% for education in educations %}
+									<li class="wow fadeInUp" data-wow-duration="1s">
+										<div class="list_inner">
+											<span class="icon"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="791.803px" height="791.803px" viewBox="0 0 791.803 791.803" style="enable-background:new 0 0 791.803 791.803;" xml:space="preserve" class="svg replaced-svg">
 <g>
 	<path d="M395.904,475.016l-236.203-72.7v71.524v49.896c0,56.133,105.787,101.644,236.274,101.644   c130.48,0,236.285-45.511,236.285-101.644c0-0.442-0.145-0.886-0.154-1.318V402.316L395.904,475.016z"></path>
 	<path d="M0,318.734l84.383,30.185l7.191-15.401l31-2.635l4.42,4.599l-26.601,6.308l-3.877,11.475   c-0.007,0-60.087,125.604-51.263,187.05c0,0,37.502,22.37,74.988,0l9.962-168v-13.984l55.8-12.588l-3.941,9.705l-41.604,13.529   l19.242,6.874l236.203,72.7l236.201-72.7l159.699-57.116l-395.9-152.313L0,318.734z"></path>
@@ -569,106 +571,20 @@
 <g>
 </g>
 </svg></span></span>
-										<div class="resume_title">
-											<h3>کارشناسی ارشد نرم افزار <span>(1393 - 1395)</span></h3>
-											<span class="company">دانشگاه تهران</span>
+											<div class="resume_title">
+												<h3>{{ education.title }}
+													<span>
+													({{ education.start_year }} - {% if education.end_year != 0%}education.end_year{% else %}الان){% endif %}
+													</span>
+												</h3>
+												<span class="company">{{ education.place }}</span>
+											</div>
+											<p class="text">
+												{{ education.short_description }}
+											</p>
 										</div>
-										<p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-											استفاده از طراحان گرافیک است.</p>
-									</div>
-								</li>
-								<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-									<div class="list_inner">
-<span class="icon"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="791.803px" height="791.803px" viewBox="0 0 791.803 791.803" style="enable-background:new 0 0 791.803 791.803;" xml:space="preserve" class="svg replaced-svg">
-<g>
-	<path d="M395.904,475.016l-236.203-72.7v71.524v49.896c0,56.133,105.787,101.644,236.274,101.644   c130.48,0,236.285-45.511,236.285-101.644c0-0.442-0.145-0.886-0.154-1.318V402.316L395.904,475.016z"></path>
-	<path d="M0,318.734l84.383,30.185l7.191-15.401l31-2.635l4.42,4.599l-26.601,6.308l-3.877,11.475   c-0.007,0-60.087,125.604-51.263,187.05c0,0,37.502,22.37,74.988,0l9.962-168v-13.984l55.8-12.588l-3.941,9.705l-41.604,13.529   l19.242,6.874l236.203,72.7l236.201-72.7l159.699-57.116l-395.9-152.313L0,318.734z"></path>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-</svg></span></span>
-										<div class="resume_title">
-											<h3>کارشناسی علوم کامپیوتر <span>(1391 - 1393)</span></h3>
-											<span class="company">دانشگاه فردوسی مشهد</span>
-										</div>
-										<p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-											استفاده از طراحان گرافیک است.</p>
-									</div>
-								</li>
-								<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
-									<div class="list_inner">
-<span class="icon"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="791.803px" height="791.803px" viewBox="0 0 791.803 791.803" style="enable-background:new 0 0 791.803 791.803;" xml:space="preserve" class="svg replaced-svg">
-<g>
-	<path d="M395.904,475.016l-236.203-72.7v71.524v49.896c0,56.133,105.787,101.644,236.274,101.644   c130.48,0,236.285-45.511,236.285-101.644c0-0.442-0.145-0.886-0.154-1.318V402.316L395.904,475.016z"></path>
-	<path d="M0,318.734l84.383,30.185l7.191-15.401l31-2.635l4.42,4.599l-26.601,6.308l-3.877,11.475   c-0.007,0-60.087,125.604-51.263,187.05c0,0,37.502,22.37,74.988,0l9.962-168v-13.984l55.8-12.588l-3.941,9.705l-41.604,13.529   l19.242,6.874l236.203,72.7l236.201-72.7l159.699-57.116l-395.9-152.313L0,318.734z"></path>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-</svg></span></span>
-										<div class="resume_title">
-											<h3>کارشناسی مهندسی کامپیوتر <span>(1388 - 1391)</span></h3>
-											<span class="company">دانشگاه شیراز</span>
-										</div>
-										<p class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-											استفاده از طراحان گرافیک است.</p>
-									</div>
-								</li>
+									</li>
+								{% endfor %}
 							</ul>
 						</div>
 					</div>

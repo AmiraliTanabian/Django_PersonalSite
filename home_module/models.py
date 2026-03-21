@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+
 class InfoModel(models.Model):
     name = models.CharField(max_length=50, verbose_name="نام")
     last_name = models.CharField(max_length=50, verbose_name="نام خانوادگی")
@@ -23,9 +24,11 @@ class InfoModel(models.Model):
 
     def full_name(self):
         return f'{self.name} {self.last_name}'
+
     class Meta:
         verbose_name = "تنظیم"
         verbose_name_plural = "تنظیمات"
+
 
 class SkillModel(models.Model):
     skill_name = models.CharField(max_length=100, verbose_name="نام مهارت")
@@ -41,6 +44,7 @@ class SkillModel(models.Model):
         verbose_name = "مهارت"
         verbose_name_plural = "مهارت ها"
 
+
 class CommentModels(models.Model):
     name = models.CharField(max_length=100, verbose_name="نام")
     group = models.CharField(max_length=100, verbose_name="شرکت / گروه")
@@ -54,6 +58,7 @@ class CommentModels(models.Model):
     def __str__(self):
         return self.name
 
+
 class StatsModel(models.Model):
     title = models.CharField(max_length=250, verbose_name="عنوان")
     stats = models.IntegerField(verbose_name="عدد", validators=[
@@ -66,3 +71,22 @@ class StatsModel(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class EducationModel(models.Model):
+    title = models.CharField(verbose_name="عنوان تحصیلات", max_length=255)
+    place = models.CharField(verbose_name="محل تحصیل", max_length=255)
+    short_description = models.CharField(verbose_name="توضیحات کوتاه", max_length=255)
+    start_year = models.IntegerField(verbose_name="سال شروع", validators=[
+        MinValueValidator(0, 'نمیتوانید مقدار کمتر از صفر وارد کنید')
+    ])
+    end_year = models.IntegerField(verbose_name="سال پایان (‌صقر بزنید اگر تا الان ادامه داشته)", validators=[
+        MinValueValidator(0, 'نمیتوانید مقدار کمتر از صفر وارد کنید')
+    ])
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "مدرک"
+        verbose_name_plural = "مدارک"
