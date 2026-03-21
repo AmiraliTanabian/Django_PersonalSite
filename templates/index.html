@@ -315,7 +315,8 @@
 							{% for skill in skills %}
 								{% if not forloop.counter|divisibleby:2 %}
 									<div class="progress_inner" data-value="{{ skill.proficiency_level }}">
-										<span><span class="label">{{ skill.skill_name }}</span><span class="number">{{ skill.proficiency_level }}%</span></span>
+										<span><span class="label">{{ skill.skill_name }}</span><span
+												class="number">{{ skill.proficiency_level }}%</span></span>
 										<div class="background">
 											<div class="bar">
 												<div class="bar_in"></div>
@@ -344,23 +345,23 @@
 							{% endfor %}
 						</div>
 					</div>
-{#					<div class="left">#}
-{#						<div class="dodo_progress wow fadeInUp" data-wow-duration="1s">#}
-{#							{% for skill in skills %}#}
-{#								{% if not forloop.counter|divisibleby:2 %}#}
-{#									<div class="progress_inner" data-value="{{ skill.proficiency_level }}">#}
-{#										<span><span class="label">{{ skill.skill_name }}</span><span#}
-{#												class="number">{{ skill.proficiency_level }}%</span></span>#}
-{#										<div class="background">#}
-{#											<div class="bar">#}
-{#												<div class="bar_in"></div>#}
-{#											</div>#}
-{#										</div>#}
-{#									</div>#}
-{#								{% endif %}#}
-{#							{% endfor %}#}
-{#						</div>#}
-{#					</div>#}
+					{#					<div class="left">#}
+					{#						<div class="dodo_progress wow fadeInUp" data-wow-duration="1s">#}
+					{#							{% for skill in skills %}#}
+					{#								{% if not forloop.counter|divisibleby:2 %}#}
+					{#									<div class="progress_inner" data-value="{{ skill.proficiency_level }}">#}
+					{#										<span><span class="label">{{ skill.skill_name }}</span><span#}
+					{#												class="number">{{ skill.proficiency_level }}%</span></span>#}
+					{#										<div class="background">#}
+					{#											<div class="bar">#}
+					{#												<div class="bar_in"></div>#}
+					{#											</div>#}
+					{#										</div>#}
+					{#									</div>#}
+					{#								{% endif %}#}
+					{#							{% endfor %}#}
+					{#						</div>#}
+					{#					</div>#}
 
 				</div>
 			</div>
@@ -872,96 +873,39 @@
 					<div class="total">
 						<div class="in wow fadeInUp tm2" data-wow-duration="1s">
 							<ul class="owl-carousel owl-theme">
-								<li>
-									<div class="icon">
-										<svg xmlns="http://www.w3.org/2000/svg"
-										     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1"
-										     x="0px" y="0px" width="200px" height="200px" viewBox="796 698 200 200"
-										     enable-background="new 796 698 200 200" xml:space="preserve"
-										     class="svg replaced-svg">
+								{% for comment in comments %}
+									<li>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg"
+											     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1"
+											     x="0px" y="0px" width="200px" height="200px" viewBox="796 698 200 200"
+											     enable-background="new 796 698 200 200" xml:space="preserve"
+											     class="svg replaced-svg">
         <g>
             <path d="M885.208,749.739v-40.948C836.019,708.791,796,748.81,796,798v89.209h89.208V798h-48.26   C836.948,771.39,858.598,749.739,885.208,749.739z"></path>
 	        <path d="M996,749.739v-40.948c-49.19,0-89.209,40.019-89.209,89.209v89.209H996V798h-48.26   C947.74,771.39,969.39,749.739,996,749.739z"></path>
         </g>
         </svg>
-									</div>
-									<div class="text tm3">
-										<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-											طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
-											لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
-											ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته است.</p>
-									</div>
-									<div class="short tm3">
-										<div class="image">
-											<div class="main"
-											     data-img-url="{% static 'images/testimonials/1.jpg' %}"></div>
 										</div>
-										<div class="detail">
-											<h3>متین علیمی</h3>
-											<span>گروه ABC</span>
+										<div class="text tm3">
+											<p>
+												{{ comment.comment_text }}
+											</p>
 										</div>
-									</div>
-								</li>
-								<li>
-									<div class="icon">
-										<svg xmlns="http://www.w3.org/2000/svg"
-										     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1"
-										     x="0px" y="0px" width="200px" height="200px" viewBox="796 698 200 200"
-										     enable-background="new 796 698 200 200" xml:space="preserve"
-										     class="svg replaced-svg">
-        <g>
-            <path d="M885.208,749.739v-40.948C836.019,708.791,796,748.81,796,798v89.209h89.208V798h-48.26   C836.948,771.39,858.598,749.739,885.208,749.739z"></path>
-	        <path d="M996,749.739v-40.948c-49.19,0-89.209,40.019-89.209,89.209v89.209H996V798h-48.26   C947.74,771.39,969.39,749.739,996,749.739z"></path>
-        </g>
-        </svg>
-									</div>
-									<div class="text tm3">
-										<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-											طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
-											لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
-											ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته است.</p>
-									</div>
-									<div class="short tm3">
-										<div class="image">
-											<div class="main"
-											     data-img-url="{% static 'images/testimonials/2.jpg' %}"></div>
+										<div class="short tm3">
+											<div class="image">
+												<div class="main"
+												     data-img-url="{{ comment.profile_image.url }}"></div>
+											</div>
+											<div class="detail">
+												<h3>{{ comment.name }}</h3>
+												<span>{{ comment.group }}</span>
+											</div>
 										</div>
-										<div class="detail">
-											<h3>حسن آرامی</h3>
-											<span>استودیو ویواکو</span>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="icon">
-										<svg xmlns="http://www.w3.org/2000/svg"
-										     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1"
-										     x="0px" y="0px" width="200px" height="200px" viewBox="796 698 200 200"
-										     enable-background="new 796 698 200 200" xml:space="preserve"
-										     class="svg replaced-svg">
-        <g>
-            <path d="M885.208,749.739v-40.948C836.019,708.791,796,748.81,796,798v89.209h89.208V798h-48.26   C836.948,771.39,858.598,749.739,885.208,749.739z"></path>
-	        <path d="M996,749.739v-40.948c-49.19,0-89.209,40.019-89.209,89.209v89.209H996V798h-48.26   C947.74,771.39,969.39,749.739,996,749.739z"></path>
-        </g>
-        </svg>
-									</div>
-									<div class="text tm3">
-										<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-											طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
-											لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
-											ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته است.</p>
-									</div>
-									<div class="short tm3">
-										<div class="image">
-											<div class="main"
-											     data-img-url={% static 'images/testimonials/3.jpg' %}></div>
-										</div>
-										<div class="detail">
-											<h3>علی حسینی</h3>
-											<span>طراح سایت</span>
-										</div>
-									</div>
-								</li>
+									</li>
+
+
+								{% endfor %}
 							</ul>
 						</div>
 					</div>
