@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, View
 from django.http import HttpRequest
-from .models import InfoModel, SkillModel, CommentModels, StatsModel, EducationModel, WorkExperience, AttributeModel
+from .models import InfoModel, SkillModel, CommentModels, StatsModel, EducationModel, WorkExperience, AttributeModel, PortfolioCategoryModel, PortfolioModel
 
 class HomeView(View):
     def get(self, request:HttpRequest):
@@ -20,6 +20,8 @@ class HomeView(View):
         except IndexError:
             attributes = AttributeModel.objects.all()
 
+        portfolio_cats = PortfolioCategoryModel.objects.all()
+        portfolios = PortfolioModel.objects.all()
         return render(request, "index.html", {
             "info":info,
             "skills":skills,
@@ -27,5 +29,7 @@ class HomeView(View):
             "stats":stats,
             "educations":educations,
             "experiences":experiences,
-            "attributes":attributes
+            "attributes":attributes,
+            "portfolio_cats":portfolio_cats,
+            "portfolios":portfolios
         })

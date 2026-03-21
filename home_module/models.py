@@ -119,3 +119,28 @@ class AttributeModel(models.Model):
     class Meta:
         verbose_name = "ویژگی"
         verbose_name_plural = "ویژگی ها"
+
+class PortfolioCategoryModel(models.Model):
+    title = models.CharField(max_length=200, verbose_name="نام دسته بندی نمونه کار")
+    slug = models.SlugField(verbose_name="اسلاگ ( نام انگلیسی )", unique=True)
+
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "دسته بندی نمونه کار"
+        verbose_name_plural = "دسته بندی های نمونه کار"
+
+class PortfolioModel(models.Model):
+    category = models.ForeignKey(PortfolioCategoryModel, on_delete=models.CASCADE, verbose_name="دسته بندی")
+    title = models.CharField(max_length=200, verbose_name="عنوان")
+    url = models.URLField(verbose_name="آدرس", null=True)
+    banner = models.ImageField(upload_to="Portofolio_banner", verbose_name="بنر")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "نمونه کار"
+        verbose_name_plural = "نمونه کارها"

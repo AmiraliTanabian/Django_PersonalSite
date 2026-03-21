@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import InfoModel,SkillModel, CommentModels, StatsModel,EducationModel,WorkExperience, AttributeModel
+from .models import InfoModel,SkillModel, CommentModels, StatsModel,EducationModel,WorkExperience, AttributeModel, PortfolioCategoryModel, PortfolioModel
 
 admin.site.register(InfoModel)
 admin.site.register(SkillModel)
@@ -8,3 +8,5 @@ admin.site.register(StatsModel)
 admin.site.register(EducationModel)
 admin.site.register(WorkExperience)
 admin.site.register(AttributeModel)
+admin.site.register(PortfolioCategoryModel)
+admin.site.register(PortfolioModel)
