@@ -2,7 +2,8 @@ from django.db import models
 from django.core.validators import MinValueValidator
 
 class InfoModel(models.Model):
-    full_name = models.CharField(max_length=50, verbose_name="نام و نام خانوادگی")
+    name = models.CharField(max_length=50, verbose_name="نام")
+    last_name = models.CharField(max_length=50, verbose_name="نام خانوادگی")
     short_discription = models.CharField(max_length=50, verbose_name="توضیح کوتاه")
     short_about = models.CharField(max_length=255, verbose_name="درباره شما(کوتاه)")
     about = models.TextField(verbose_name="درباره شما")
@@ -14,10 +15,16 @@ class InfoModel(models.Model):
         MinValueValidator(0, "حداقل سابقه کار ۰ میباشد")
     ])
     degree = models.CharField(max_length=100, verbose_name="درجه")
+    avatar = models.ImageField(upload_to="avatar/", verbose_name="تصویر پروفایل", null=True)
+    is_active = models.BooleanField(verbose_name="فعال / غیرفعال", default=True)
 
     def __str__(self):
         return f'اطلاعات شماره {self.pk}'
 
+    def full_name(self):
+        return f'{self.name} {self.last_name}'
     class Meta:
         verbose_name = "تنظیم"
         verbose_name_plural = "تنظیمات"
+
+class 
