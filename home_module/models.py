@@ -40,3 +40,16 @@ class SkillModel(models.Model):
     class Meta:
         verbose_name = "مهارت"
         verbose_name_plural = "مهارت ها"
+
+class CommentModels(models.Model):
+    name = models.CharField(max_length=100, verbose_name="نام")
+    group = models.CharField(max_length=100, verbose_name="شرکت / گروه")
+    profile_image = models.ImageField(upload_to='comments_image', verbose_name="تصویر کاربر")
+    comment_text = models.TextField(verbose_name="متن نظر")
+
+    class Meta:
+        verbose_name = "نظر"
+        verbose_name_plural = "نظرات"
+
+    def __str__(self):
+        return self.name
