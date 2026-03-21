@@ -53,3 +53,16 @@ class CommentModels(models.Model):
 
     def __str__(self):
         return self.name
+
+class StatsModel(models.Model):
+    title = models.CharField(max_length=250, verbose_name="عنوان")
+    stats = models.IntegerField(verbose_name="عدد", validators=[
+        MinValueValidator(0, 'نمیتوانید مقدار کمتر از صفر وارد کنید')
+    ])
+
+    class Meta:
+        verbose_name = "آمار"
+        verbose_name_plural = "آمار"
+
+    def __str__(self):
+        return self.title

@@ -271,30 +271,14 @@
 			<div class="container">
 				<div class="counter_list">
 					<ul>
-						<li>
+						{% for stat in stats %}
+							<li>
 							<div class="list_inner tilt-effect">
-								<h3><span class="tm_counter" data-from="0" data-to="20" data-speed="2000">0</span></h3>
-								<span class="title">محصولات دیجیتال</span>
+								<h3><span class="tm_counter" data-from="0" data-to="{{ stat.stats }}" data-speed="2500"></span></h3>
+								<span class="title">{{ stat.title }}</span>
 							</div>
 						</li>
-						<li>
-							<div class="list_inner tilt-effect">
-								<h3><span class="tm_counter" data-from="0" data-to="280" data-speed="2000">0</span></h3>
-								<span class="title">مشتریان ثابت</span>
-							</div>
-						</li>
-						<li>
-							<div class="list_inner tilt-effect">
-								<h3><span class="tm_counter" data-from="0" data-to="3" data-speed="2000">0</span>K</h3>
-								<span class="title">کل پروژه ها</span>
-							</div>
-						</li>
-						<li>
-							<div class="list_inner tilt-effect">
-								<h3><span class="tm_counter" data-from="0" data-to="9" data-speed="2000">0</span>+</h3>
-								<span class="title">برنده جوایز</span>
-							</div>
-						</li>
+						{% endfor %}
 					</ul>
 				</div>
 			</div>
