@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import MinValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class InfoModel(models.Model):
     name = models.CharField(max_length=50, verbose_name="نام")
@@ -27,4 +27,16 @@ class InfoModel(models.Model):
         verbose_name = "تنظیم"
         verbose_name_plural = "تنظیمات"
 
-class 
+class SkillModel(models.Model):
+    skill_name = models.CharField(max_length=100, verbose_name="نام مهارت")
+    proficiency_level = models.IntegerField(verbose_name="درصد تسلط", validators=[
+        MinValueValidator(0, "کمترین مقدار تسلط صفر است."),
+        MaxValueValidator(100, "بیشترین مقدار تسلط ۱۰۰ است")
+    ])
+
+    def __str__(self):
+        return f'{self.skill_name} | {self.proficiency_level}'
+
+    class Meta:
+        verbose_name = "مهارت"
+        verbose_name_plural = "مهارت ها"
