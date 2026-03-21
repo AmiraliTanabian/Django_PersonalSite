@@ -90,3 +90,32 @@ class EducationModel(models.Model):
     class Meta:
         verbose_name = "مدرک"
         verbose_name_plural = "مدارک"
+
+class WorkExperience(models.Model):
+    title = models.CharField(verbose_name="عنوان سابقه کار", max_length=255)
+    place = models.CharField(verbose_name="شرکت / گروه", max_length=255)
+    short_description = models.CharField(verbose_name="توضیحات کوتاه", max_length=255)
+    start_year = models.IntegerField(verbose_name="سال شروع", validators=[
+        MinValueValidator(0, 'نمیتوانید مقدار کمتر از صفر وارد کنید')
+    ])
+    end_year = models.IntegerField(verbose_name="سال پایان (‌صقر بزنید اگر تا الان ادامه داشته)", validators=[
+        MinValueValidator(0, 'نمیتوانید مقدار کمتر از صفر وارد کنید')
+    ])
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "سابقه"
+        verbose_name_plural = "سوابق"
+
+class AttributeModel(models.Model):
+    title = models.CharField(verbose_name="نام ویژگی", max_length=255)
+    short_discription = models.CharField(verbose_name="توضیحی کوتاه", max_length=255)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "ویژگی"
+        verbose_name_plural = "ویژگی ها"
