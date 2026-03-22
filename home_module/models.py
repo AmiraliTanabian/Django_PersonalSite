@@ -144,3 +144,13 @@ class PortfolioModel(models.Model):
     class Meta:
         verbose_name = "نمونه کار"
         verbose_name_plural = "نمونه کارها"
+
+class NewsLetterModel(models.Model):
+    email = models.EmailField(verbose_name="ایمیل")
+
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        verbose_name = "ایمیل خبرنامه"
+        verbose_name_plural = "ایمیل های خبرنامه"

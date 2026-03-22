@@ -15,7 +15,7 @@
 	<meta name="description" content="Name of your web site">
 	<meta name="author" content="Marketify">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Foliox - قالب شخصی</title>
+	<title>{{ info.full_name }} | سایت شخصی</title>
 
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
 	      rel="stylesheet">
@@ -884,8 +884,11 @@
 					</div>
 					<div class="right wow fadeInRight" data-wow-duration="1s">
 						<div class="field">
-							<input type="text" placeholder="آدرس ایمیل شما">
-							<input type="submit" value="ارسال"/>
+							<form action="#" method="post">
+								{% csrf_token %}
+								<input name="email" type="text" placeholder="آدرس ایمیل شما">
+								<input type="submit" value="ارسال"/>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -921,6 +924,8 @@
 <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
 <script src="{% static 'js/plugins.js' %}"></script>
 <script src="{% static 'js/init.js' %}"></script>
+
+{% include 'components/messages_component.html' %}
 
 </body>
 
