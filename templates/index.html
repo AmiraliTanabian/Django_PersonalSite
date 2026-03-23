@@ -844,24 +844,36 @@
 					</div>
 					<div class="right wow fadeInRight" data-wow-duration="1s">
 						<div class="fields">
-							<form action="https://marketifythemes.net/" method="post" class="contact_form"
+							<form action="#" method="post" class="contact_form"
 							      id="contact_form" autocomplete="off">
+								{% csrf_token %}
 								<div class="returnmessage"
 								     data-success="Your message has been received, We will contact you soon."></div>
 								<div class="empty_notice"><span>لطفا فیلدهای مورد نیاز را پر کنید</span></div>
 								<div class="input_list">
 									<ul>
-										<li><input id="name" type="text" placeholder="نام"/></li>
-										<li><input id="email" type="text" placeholder="ایمیل"/></li>
-										<li><input id="phone" type="number" placeholder="تلفن"/></li>
-										<li><input id="subject" type="text" placeholder="موضوع"/></li>
+										<input type="hidden" name="status" value="contact-us">
+										<li>
+											{{ form.name }}
+										</li>
+										<li>
+											{{ form.email }}
+										</li>
+										<li>
+											{{ form.phone_number }}
+										</li>
+										<li>
+											{{ form.subject }}
+										</li>
 									</ul>
 								</div>
 								<div class="message_area">
-									<textarea id="message" placeholder="متن پیام"></textarea>
+
+									{{ form.text }}
+
 								</div>
 								<div class="foliox_tm_button">
-									<a id="send_message" href="#"><span>ارسال</span></a>
+									<button type="submit" id="send_message"><span>ارسال</span></button>
 								</div>
 
 							</form>
@@ -886,7 +898,7 @@
 						<div class="field">
 							<form action="#" method="post">
 								{% csrf_token %}
-								<input name="email" type="text" placeholder="آدرس ایمیل شما">
+								<input name="news_letter_email" type="text" placeholder="آدرس ایمیل شما">
 								<input type="submit" value="ارسال"/>
 							</form>
 						</div>
@@ -926,7 +938,7 @@
 <script src="{% static 'js/init.js' %}"></script>
 
 {% include 'components/messages_component.html' %}
-
+{% include "components/form_error_handler.html" with form=form %}
 </body>
 
 <!-- Mirrored from marketifythemes.net/html/foliox/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Oct 2022 17:29:55 GMT -->
