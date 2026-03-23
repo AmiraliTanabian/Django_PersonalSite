@@ -158,3 +158,16 @@ class NewsLetterModel(models.Model):
     class Meta:
         verbose_name = "ایمیل خبرنامه"
         verbose_name_plural = "ایمیل های خبرنامه"
+
+
+class ServicesModel(models.Model):
+    title = models.CharField(verbose_name="عنوان", max_length=100)
+    image = models.ImageField(verbose_name="تصویر", upload_to="services_banner")
+    icon = models.TextField(verbose_name="کد html آیکون مورد نظر")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "سرویس"
+        verbose_name_plural = "سرویس ها"
