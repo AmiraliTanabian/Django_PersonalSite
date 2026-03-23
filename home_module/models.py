@@ -16,7 +16,11 @@ class InfoModel(models.Model):
         MinValueValidator(0, "حداقل سابقه کار ۰ میباشد")
     ])
     degree = models.CharField(max_length=100, verbose_name="درجه")
-    avatar = models.ImageField(upload_to="avatar/", verbose_name="تصویر پروفایل", null=True)
+    avatar = models.ImageField(upload_to="avatar/", verbose_name="تصویر پروفایل", null=True, blank=True)
+    instagram_address = models.URLField(verbose_name="آدرس اینستاگرام (‌اختیاری)", null=True, blank=True)
+    telegram_address = models.URLField(verbose_name="آدرس تلگرام (‌اختیاری)", null=True, blank=True)
+    github_address = models.URLField(verbose_name="آدرس گیت ها (‌اختیاری)", null=True, blank=True)
+    linkedin_address = models.URLField(verbose_name="آدرس لینکدین (‌اختیاری)", null=True, blank=True)
     is_active = models.BooleanField(verbose_name="فعال / غیرفعال", default=True)
 
     def __str__(self):
