@@ -171,3 +171,14 @@ class ServicesModel(models.Model):
     class Meta:
         verbose_name = "سرویس"
         verbose_name_plural = "سرویس ها"
+
+class CVModel(models.Model):
+    cv_file = models.FileField(upload_to="cv",verbose_name="فایل رزومه (‌آخرین فایل ثبت شده به عنوان رزومه قرار میگیرد)")
+    is_active = models.BooleanField(verbose_name="فعال / غیرفعال", default=True)
+
+    def __str__(self):
+        return f'روزمه شماره {self.pk}'
+
+    class Meta:
+        verbose_name = "رزومه"
+        verbose_name_plural = "رزومه ها"
