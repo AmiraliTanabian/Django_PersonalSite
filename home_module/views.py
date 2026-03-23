@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, View
 from django.http import HttpRequest, HttpResponseRedirect
 from .models import InfoModel, SkillModel, CommentModels, StatsModel, EducationModel, WorkExperience, AttributeModel, \
-    PortfolioCategoryModel, PortfolioModel, NewsLetterModel
+    PortfolioCategoryModel, PortfolioModel, NewsLetterModel, ServicesModel
 from django.urls import reverse_lazy
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
@@ -36,6 +36,8 @@ class HomeView(View):
         except IndexError:  # dont have more then 3 post
             blog_posts = ArticleModel.objects.filter(is_active=True)
 
+        services = ServicesModel.objects.all()
+
         self.context = {
             "info": info,
             "skills": skills,
@@ -48,6 +50,7 @@ class HomeView(View):
             "portfolios": portfolios,
             "form": contact_form,
             "posts": blog_posts,
+            "services":services,
         }
         return super().dispatch(request, *args, **kwargs)
 

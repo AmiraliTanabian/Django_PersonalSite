@@ -162,8 +162,8 @@ class NewsLetterModel(models.Model):
 
 class ServicesModel(models.Model):
     title = models.CharField(verbose_name="عنوان", max_length=100)
-    text = models.CharField(verbose_name="توضیحات")
-    icon = models.TextField(verbose_name="کد html آیکون مورد نظر")
+    text = models.CharField(verbose_name="توضیحات", max_length=255)
+    icon = models.TextField(verbose_name="کد svg آیکون مورد نظر (‌تگ svg را به طول کامل در این محل قرار دهید)")
 
     def __str__(self):
         return self.title
