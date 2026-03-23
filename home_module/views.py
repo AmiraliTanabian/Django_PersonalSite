@@ -30,20 +30,22 @@ class HomeView(View):
 
     contact_form = ContactUsModelForm()
 
+    context = {
+        "info": info,
+        "skills": skills,
+        "comments": comments,
+        "stats": stats,
+        "educations": educations,
+        "experiences": experiences,
+        "attributes": attributes,
+        "portfolio_cats": portfolio_cats,
+        "portfolios": portfolios,
+        "form": contact_form,
+    }
+
     def get(self, request: HttpRequest):
 
-        return render(request, "index.html", {
-            "info": HomeView.info,
-            "skills": HomeView.skills,
-            "comments": HomeView.comments,
-            "stats": HomeView.stats,
-            "educations": HomeView.educations,
-            "experiences": HomeView.experiences,
-            "attributes": HomeView.attributes,
-            "portfolio_cats": HomeView.portfolio_cats,
-            "portfolios": HomeView.portfolios,
-            "form":HomeView.contact_form,
-        })
+        return render(request, "index.html", HomeView.context)
 
     def post(self, request: HttpRequest):
         # use for newsletter
@@ -79,15 +81,4 @@ class HomeView(View):
                 messages.success(request, "پیام شما با موفقیت ارسال شد \n نتیجه ایمیل میشود")
                 return HttpResponseRedirect(reverse_lazy("home_url"))
 
-            return render(request, "index.html", {
-                "info": HomeView.info,
-                "skills": HomeView.skills,
-                "comments": HomeView.comments,
-                "stats": HomeView.stats,
-                "educations": HomeView.educations,
-                "experiences": HomeView.experiences,
-                "attributes": HomeView.attributes,
-                "portfolio_cats": HomeView.portfolio_cats,
-                "portfolios": HomeView.portfolios,
-                "form": HomeView.contact_form,
-            })
+            return render(request, "index.html", HomeView.context)
