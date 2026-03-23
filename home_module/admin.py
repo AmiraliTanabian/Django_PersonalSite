@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import InfoModel, SkillModel, CommentModels, StatsModel, EducationModel, WorkExperience, AttributeModel, \
-    PortfolioCategoryModel, PortfolioModel, NewsLetterModel, ServicesModel, CVModel
+    PortfolioCategoryModel, PortfolioModel, NewsLetterModel, ServicesModel, CVModel, SkillLogoModel
 
 admin.site.register(InfoModel)
 admin.site.register(SkillModel)
@@ -14,3 +14,4 @@ admin.site.register(PortfolioModel)
 admin.site.register(NewsLetterModel)
 admin.site.register(ServicesModel)
 admin.site.register(CVModel)
+admin.site.register(SkillLogoModel)

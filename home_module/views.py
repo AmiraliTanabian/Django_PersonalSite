@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, View
 from django.http import HttpRequest, HttpResponseRedirect
 from .models import InfoModel, SkillModel, CommentModels, StatsModel, EducationModel, WorkExperience, AttributeModel, \
-    PortfolioCategoryModel, PortfolioModel, NewsLetterModel, ServicesModel, CVModel
+    PortfolioCategoryModel, PortfolioModel, NewsLetterModel, ServicesModel, CVModel, SkillLogoModel
 from django.urls import reverse_lazy
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
@@ -40,6 +40,8 @@ class HomeView(View):
 
         cv = CVModel.objects.filter(is_active=True).last()
 
+        skills_logo = SkillLogoModel.objects.all()
+
         self.context = {
             "info": info,
             "skills": skills,
@@ -54,6 +56,7 @@ class HomeView(View):
             "posts": blog_posts,
             "services":services,
             "cv":cv,
+            "skills_logo":skills_logo,
         }
         return super().dispatch(request, *args, **kwargs)
 

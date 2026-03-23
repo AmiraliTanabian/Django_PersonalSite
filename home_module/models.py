@@ -182,3 +182,13 @@ class CVModel(models.Model):
     class Meta:
         verbose_name = "رزومه"
         verbose_name_plural = "رزومه ها"
+
+class SkillLogoModel(models.Model):
+    logo = models.ImageField(verbose_name="لوگو مهارت / تکنولوژی", upload_to="skill_logo/")
+
+    def __str__(self):
+        return f'لوگو شماره {self.pk}'
+
+    class Meta:
+        verbose_name = "لوگو تکنولوژی / مهارت "
+        verbose_name_plural = "لوگوهای تکنولوژی / مهارت"
