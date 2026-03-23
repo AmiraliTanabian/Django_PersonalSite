@@ -8,7 +8,7 @@ from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from contact_us_module.forms import ContactUsModelForm
 from django.contrib import messages
-
+from blog_module.models import ArticleModel
 class HomeView(View):
     info = InfoModel.objects.filter(is_active=True).last()
     skills = SkillModel.objects.all()
@@ -30,6 +30,12 @@ class HomeView(View):
 
     contact_form = ContactUsModelForm()
 
+    try:
+        blog_posts = ArticleModel.objects.filter(is_active=True)[:3]
+    except IndexError: # dont have more then 3 post
+        blog_posts = ArticleModel.objects.filter(is_active=True)
+
+
     context = {
         "info": info,
         "skills": skills,
@@ -41,6 +47,7 @@ class HomeView(View):
         "portfolio_cats": portfolio_cats,
         "portfolios": portfolios,
         "form": contact_form,
+        "posts":blog_posts,
     }
 
     def get(self, request: HttpRequest):

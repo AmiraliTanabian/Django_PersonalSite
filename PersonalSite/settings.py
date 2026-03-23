@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "contact_us_module",
     "home_module",
     "blog_module",
+    # External apps
+    "django_jalali"
 ]
 
 MIDDLEWARE = [
