@@ -1,0 +1,6 @@
+services:
+  personal_site:
+    build: .
+    container_name: Personal_Site
+    ports:
+      - "8000:8000"
